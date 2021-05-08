@@ -11,5 +11,5 @@ public interface DepProductsActions {
     void ArrangeToWork(Person newEmployee);
     Account GiveCredit(Person possibleClient);
     void TakeChurchDonation(AccountId client);
-    void ListenClientRequest(Person possibleClient, boolean isDay);
+    boolean TransferMoney(Person client);
 }

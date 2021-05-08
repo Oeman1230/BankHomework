@@ -5,7 +5,6 @@ import pack.Bank.AccountId;
 import pack.Person;
 
 public interface DepAccountsActions {
-    void DepAccountsWork()
     boolean CreateAccount(Person newClient);
     boolean CheckAccountExistence(AccountId clientId);
     Account CreditCreationProcess(Person possibleClient);

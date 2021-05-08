@@ -1,13 +1,11 @@
 package pack.Bank.depatrments;
 
-import pack.Bank.Account;
-import pack.Bank.AccountId;
-import pack.Bank.Operation;
+import pack.Bank.*;
 import pack.Person;
 
 import java.util.List;
 
-public class DepProducts implements DepProductsActions {
+public class DepProducts implements DepProductsActions, GetRandomEmployee, AddRemoveEmployers {
     List<Person>productsPersonal;
 
 
@@ -38,8 +36,19 @@ public class DepProducts implements DepProductsActions {
     }
 
     @Override
-    public void ListenClientRequest(Person possibleClient, boolean isDay) {
+    public boolean TransferMoney(Person client) {
+        return false;
+    }
 
+
+    @Override
+    public Person GetRandomEmployer() {
+        return productsPersonal.get(0);
+    }
+
+    @Override
+    public boolean AddNewEmployee(Person newEmployee) {
+        return true;
     }
 }
 

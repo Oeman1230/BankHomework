@@ -6,11 +6,16 @@ import pack.Bank.PersonPost;
 public class Person {
     private PersonName personName;
     private Integer Age;
+    private Integer personId;
     private boolean WasCriminal;
     private PersonPost job;
     private Account BankAccount;
     private String WantedAction;
     private PersonName personFriend;
+
+    public void setPersonId(Integer personId) {
+        this.personId = personId;
+    }
 
     public void setPersonName(PersonName personName) {
         this.personName = personName;
@@ -63,5 +68,11 @@ public class Person {
     public PersonName getPersonFriend() {
         return personFriend;
     }
+    public boolean wasPersonCriminal(){
+        return WasCriminal;
+    }
 
+    public Integer getPersonId() {
+        return personId;
+    }
 }
