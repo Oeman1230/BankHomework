@@ -9,14 +9,15 @@ public class AccountId{
     public void setAccountIDNum(Integer accountIDNum) {
         AccountIDNum = accountIDNum;
     }
+    public Integer getAccountIDNum() {
+        return AccountIDNum;
+    }
 
     public void setClientName(PersonName clientName) {
         this.clientName = clientName;
     }
 
-    public Integer getAccountIDNum() {
-        return AccountIDNum;
-    }
+
     public String getClientName() {
         return clientName.getFullName();
     }

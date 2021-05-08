@@ -1,46 +1,44 @@
 package pack.Bank;
 
-import pack.Bank.depatrments.DepAccounts;
-import pack.Bank.depatrments.DepProducts;
+import pack.Bank.depatrments.Departments;
 import pack.Person;
 
 public class Bank {
     private String BankName;
-    private DepProducts products;
-    private DepAccounts depAccounts;
+    private Departments departments;
 
     public void BankOffice(Person client, boolean isDay){
         System.out.println(client.getPersonName().getFullName()
                 + " Заходит в банк " + getBankName());
         Person currentEmployee = new Person();
-        currentEmployee = products.GetRandomEmployer();
+        currentEmployee = departments.getDepProducts().GetRandomEmployer();
         System.out.println(" Hello, my name is " +
                 currentEmployee.getPersonName().getFullName() +
                 " How can i help you?");
         System.out.println(client.getWantedAction());
-        if(client.getWantedAction().equals(StringActionsPresentation.takeCredit))
+        if(client.getWantedAction().equals(StringActionsPresentation.openAccount))
         {
-            products.GiveCredit(client);
+            departments.getDepProducts().OpenAccount(client);
         }
-        else if(client.getWantedAction().equals(StringActionsPresentation.openAccount))
+        else if(client.getWantedAction().equals(StringActionsPresentation.takeCredit))
         {
-            products.OpenAccount(client);
+            departments.getDepProducts().GiveCredit(client);
         }
         else if(client.getWantedAction().equals(StringActionsPresentation.getCard))
         {
-            products.CardStatistic(client.getBankAccount().getID());
+            departments.getDepProducts().CardStatistic(client.getBankAccount().getID());
         }
         else if(client.getWantedAction().equals(StringActionsPresentation.arrange))
         {
-            products.ArrangeToWork(client);
+            departments.getDepProducts().ArrangeToWork(client);
         }
         else if(client.getWantedAction().equals(StringActionsPresentation.transferMoney))
         {
-            products.TransferMoney(client);
+            departments.getDepProducts().TransferMoney(client);
         }
         else if(client.getWantedAction().equals(StringActionsPresentation.donateToChurch))
         {
-            products.TakeChurchDonation(client.getBankAccount().getID());
+            departments.getDepProducts().TakeChurchDonation(client.getBankAccount().getID());
         }
         else
         {
@@ -53,13 +51,7 @@ public class Bank {
         BankName = bankName;
     }
 
-    public void setProducts(DepProducts products) {
-        this.products = products;
-    }
 
-    public void setDepAccounts(DepAccounts depAccounts) {
-        this.depAccounts = depAccounts;
-    }
 
     public String getBankName() {
         return BankName;
@@ -67,7 +59,6 @@ public class Bank {
     public void downloadBank()
     {
         setBankName("SarovBank");
-        DepProducts pr = new DepProducts();
 
     }
 }
